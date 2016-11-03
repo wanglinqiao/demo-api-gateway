@@ -1,0 +1,15 @@
+server:
+  port: 8083
+eureka:
+  instance:
+    hostname: gateway
+  client:
+    service-url:
+      defaultZone: http://discovery:8761/eureka/
+
+zuul:
+#  ignored-services: **-**-*
+  routes:
+    users:
+      path: /**
+      service-id: demo-provider
